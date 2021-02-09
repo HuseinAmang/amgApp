@@ -14,6 +14,7 @@ exports.create = (req, res) => {
 
     // ambil post dari request body
     const post = {
+        user_id: req.body.user_id,
         title: req.body.title,
         description: req.body.description,
         published: req.body.published ? req.body.published : false
