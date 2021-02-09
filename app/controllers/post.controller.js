@@ -5,9 +5,9 @@ const Op = db.Sequelize.Op;
 // Create 
 exports.create = (req, res) => {
     // Validate request 
-    if (!req.body.title) {
+    if (!req.body.user_id) {
         res.status(400).send({
-            message: 'Judul tidak boleh kosong'
+            message: 'user id tidak boleh kosong'
         });
         return;
     }
