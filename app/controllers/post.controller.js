@@ -32,10 +32,9 @@ exports.create = (req, res) => {
 
 // Retrieve All
 exports.findAll = (req, res) => {
-    const title = req.body.title;
-    let condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
+    const user_id = req.body.user_id;
 
-    Post.findAll({ where: condition })
+    Post.findAll({ where: { user_id: user_id } })
         .then((data) => {
             res.send(data);
         }).catch((err) => {
