@@ -1,5 +1,6 @@
 const { authJwt } = require("../middleware");
 const controller = require("../controllers/user.controller");
+const upload = require("../middleware/upload");
 
 module.exports = function (app) {
     app.use(function (req, res, next) {
@@ -33,5 +34,11 @@ module.exports = function (app) {
     app.get("/api/user/:id",
         [authJwt.verifyToken],
         controller.profile
+    );
+
+    app.put("/api/user/:id",
+        [authJwt.verifyToken],
+        upload.single("file"),
+        controller.updateProfile
     );
 };

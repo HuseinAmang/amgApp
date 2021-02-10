@@ -8,6 +8,15 @@ module.exports = (sequelize, Sequelize) => {
         },
         password: {
             type: Sequelize.STRING
+        },
+        avatar:{
+            type: Sequelize.STRING,
+        },
+        avatar_type:{
+            type: Sequelize.STRING,
+        },
+        avatar_data:{
+            type: Sequelize.BLOB("long"),
         }
     });
 
